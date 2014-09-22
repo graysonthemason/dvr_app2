@@ -1,18 +1,7 @@
-<h1>Welcome to the DVR App</h1>
-
-<form method="POST" action="/session">
+<form method="POST" action="/viewer">
   <label for="name">Enter User Name</label>
   <input type="text" name="user_name" id="name" /><br/>
   <label for="password">Enter Password</label>
   <input type="password" name="password" id="password" disabled/><br/>
   <input type="submit" value="Login" />
 </form>
-
-
-  <a href="/viewer/new"><button>Sign Up</button></a><br/>
-
-
-
-<% if flash[:error] %>
-  <p style="color:red;"><%= flash[:error] %></p>
-<% end %>

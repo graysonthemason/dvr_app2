@@ -31,9 +31,22 @@ class App < ApplicationController
     redirect to('/')
   end
 
+  #viewer NEW
+  get('/viewer/new') do
+    render(:erb, :'viewers/new')
+  end
   # viewer SHOW
   get('/viewer/:id') do
     @viewer = Viewer.find(id: params[:id])
-    render(:erb, :'viewer/show')
+    render(:erb, :'viewers/show')
   end
+
+  post('/viewer') do
+    Viewer.create(name: params[:user_name])
+    user = Viewer.find(name: params[:user_name])
+    current_user_id = user.id
+    session[:current_user]  = {id: current_user_id}
+    redirect to("/viewer/#{current_user_id}")
+  end
+
 end
