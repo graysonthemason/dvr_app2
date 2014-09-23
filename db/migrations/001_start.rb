@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# db/migrations/001_start.rb
+
+>>>>>>> d82351cbbb382d758659fe3309f600dccc4babfe
 Sequel.migration do
   change do
     create_table(:stations) do
@@ -7,20 +12,32 @@ Sequel.migration do
       TrueClass :cable
       TrueClass :subscription
     end
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> d82351cbbb382d758659fe3309f600dccc4babfe
     create_table(:viewers) do
       primary_key :id
       String :name, :size=>127, :null=>false
       DateTime :created_at, :default=>Sequel::CURRENT_TIMESTAMP
     end
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> d82351cbbb382d758659fe3309f600dccc4babfe
     create_table(:series) do
       primary_key :id
       foreign_key :station_id, :stations, :null=>false, :key=>[:id]
       String :title, :size=>255, :null=>false
       DateTime :created_at, :default=>Sequel::CURRENT_TIMESTAMP
     end
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> d82351cbbb382d758659fe3309f600dccc4babfe
     create_table(:episodes) do
       primary_key :id
       foreign_key :series_id, :series, :null=>false, :key=>[:id]
@@ -36,7 +53,11 @@ Sequel.migration do
       String :original_air_date, :size=>127
       DateTime :created_at, :default=>Sequel::CURRENT_TIMESTAMP
     end
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> d82351cbbb382d758659fe3309f600dccc4babfe
     create_table(:recordings) do
       primary_key :id
       foreign_key :episode_id, :episodes, :null=>false, :key=>[:id]
@@ -46,4 +67,8 @@ Sequel.migration do
       DateTime :created_at, :default=>Sequel::CURRENT_TIMESTAMP
     end
   end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> d82351cbbb382d758659fe3309f600dccc4babfe
