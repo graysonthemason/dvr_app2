@@ -43,6 +43,7 @@ CREATE TABLE viewers (
   id   serial       PRIMARY KEY,
   name varchar(127) NOT NULL,
   created_at timestamp with time zone default now()
+  
   -- other attributes possible, like favorite genres
   --   or password information for login, but unnecesary
   --   for our MVPrototype

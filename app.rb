@@ -22,6 +22,21 @@ class App < ApplicationController
       session[:current_user]  = {id: current_user_id}
       redirect to("/viewer/#{current_user_id}")
     end
+
+
+if userTable.has_key?(params[:username])
+    user = userTable[params[:username]]
+    if user[:passwordhash] == BCrypt::Engine.hash_secret(params[:password], user[:salt])
+      session[:username] = params[:username]
+      redirect "/"
+    end
+  end
+  haml :error
+
+
+
+
+
   end
 
   # session DELETE
@@ -46,6 +61,23 @@ class App < ApplicationController
     user = Viewer.find(name: params[:user_name])
     current_user_id = user.id
     session[:current_user]  = {id: current_user_id}
+<<<<<<<<
+  password_salt = BCrypt::Engine.generate_salt
+  password_hash = BCrypt::Engine.hash_secret(params[:password], password_salt)
+  
+  #ideally this would be saved into a database, hash used just for sample
+  userTable[params[:username]] = {
+    :salt => password_salt,
+    :passwordhash => password_hash 
+  }
+<<<<<<<<<
+  session[:username] = params[:username]
+
+
+
+
+
+
     redirect to("/viewer/#{current_user_id}")
   end
 
